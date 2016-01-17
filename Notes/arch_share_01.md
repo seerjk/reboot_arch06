@@ -23,7 +23,8 @@ redis cluster 选举算法Raft
     - 少数情况下可能 Best Effort
 
 ### 1.1 高性能
-图 
+
+![redis_clients_topology](redis_clients_topology.png)
 
 * 最多1000个节点
     - 因为所有节点两两相连
@@ -43,7 +44,7 @@ redis cluster 选举算法Raft
     - 减少每个请求的环节
 
 ### 1.2 Gossip通信协议
-图
+![](redis_ping-pong.png)
 
 * ping-pong协议
 
@@ -72,6 +73,7 @@ redis单线程
 ## 2. redis cluster 使用
 
 图
+![](redis_HA_topology.png)
 
 ### 2.1 高可用
 一主n从 (replicas-per-hashslot)
@@ -106,8 +108,8 @@ redis单线程
 * 优先使用智能版
     - client操作效率高2倍
 * 长连接
-    - 
-    - redis client代码的实力尽量复用
+    - “智能版”Client为了提升效率会尽量多的和Server保持长连接。
+    - 所以，Redis Client代码的实例尽量复用
 * 管理域配置
     - redis-trib客户端进行各种配置
 * re-sharding
@@ -158,11 +160,7 @@ https://en.wikipedia.org/wiki/Raft_(computer_science)
 只在选举老大master的时候使用paxos投票，后面写入的时候全都听master的
 
 
-## redis cluster 高可用
 
-## redis cluster 使用和部署
-
-## redis cluster 选举算法Raft
 
 
 # 运维职业规划
@@ -239,6 +237,6 @@ https://en.wikipedia.org/wiki/Raft_(computer_science)
 
 ### 技术选型和架构能力
 T字型的人才
- --- 知识面 开源的
- | 深度
+ —— 横  知识面 开源的
+ |  竖  深度
 
